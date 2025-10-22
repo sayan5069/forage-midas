@@ -1,0 +1,22 @@
+server:
+  port: 33400 # <-- TASK 5: Expose API on this port
+
+general:
+  kafka-topic: "midas-transactions" # <-- TASK 2: Kafka topic name
+
+spring:
+  # General JPA Settings (Optional but good for debugging/schema creation)
+  jpa:
+    hibernate:
+      ddl-auto: update # Automatically creates/updates tables based on entities
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  # Kafka Consumer Settings (Needed for JSON deserialization)
+  kafka:
+    consumer:
+      group-id: midas-core-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer

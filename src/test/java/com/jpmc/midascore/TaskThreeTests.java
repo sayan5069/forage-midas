@@ -17,15 +17,12 @@ public class TaskThreeTests {
     @Autowired
     private KafkaProducer kafkaProducer;
 
-    @Autowired
-    private UserPopulator userPopulator;
 
     @Autowired
     private FileLoader fileLoader;
 
     @Test
     void task_three_verifier() throws InterruptedException {
-        userPopulator.populate();
         String[] transactionLines = fileLoader.loadStrings("/test_data/mnbvcxz.vbnm");
         for (String transactionLine : transactionLines) {
             kafkaProducer.send(transactionLine);

@@ -4,32 +4,32 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Transaction {
-    private long senderId;
-    private long recipientId;
+    private String senderId;
+    private String recipientId;
     private float amount;
 
     public Transaction() {
     }
 
-    public Transaction(long senderId, long recipientId, float amount) {
+    public Transaction(String senderId, String recipientId, float amount) {
         this.senderId = senderId;
         this.recipientId = recipientId;
         this.amount = amount;
     }
 
-    public long getSenderId() {
+    public String getSenderId() {
         return senderId;
     }
 
-    public void setSenderId(long senderId) {
+    public void setSenderId(String senderId) {
         this.senderId = senderId;
     }
 
-    public long getRecipientId() {
+    public String getRecipientId() {
         return recipientId;
     }
 
-    public void setRecipientId(long recipientId) {
+    public void setRecipientId(String recipientId) {
         this.recipientId = recipientId;
     }
 
